@@ -19,6 +19,7 @@
     <exec-maven-plugin.version>1.3.2</exec-maven-plugin.version>
     <karaf-maven-plugin.version>3.0.3</karaf-maven-plugin.version>
     <enunciate.version>1.27</enunciate.version>
+    <fasterxml.jackson.version>2.9.4</fasterxml.jackson.version>
     <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
     <maven-pmd-plugin.version>3.2</maven-pmd-plugin.version>
   </properties>
@@ -44,6 +45,26 @@
       <groupId>org.codehaus.enunciate</groupId>
       <artifactId>enunciate-jersey-rt</artifactId>
       <version>${enunciate.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus</groupId>
+          <artifactId>jackson:jackson-jaxrs</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus</groupId>
+          <artifactId>jackson-xc</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <version>${fasterxml.jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-jaxb-annotations</artifactId>
+      <version>${fasterxml.jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
